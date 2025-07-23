@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Mark Bueno" description="About Mark Bueno">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Read below to learn more about myself and my background."
+			>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						My journey into development began in a school computer lab, where I built simple games in Scratch just for the fun of it. That spark quickly turned into a flame when I enrolled in an Android programming class, also at school — it was there I created my first full app: a quiz game that brought everything together for the first time. From then on, I was hooked.
+					</p>
+					<br>
+					<p>
+						That early curiosity set me on a clear path. I started my professional career sharpening my skills in Java, then dove headfirst into the .NET ecosystem and Angular, learning to navigate both front and back-end complexity. Every project pushed me to write cleaner code, design smarter systems, and think beyond the task at hand.
+					</p>
+					<br>
+					<p>
+						Today, I build full-stack applications that are fast, reliable, and built to last. I’ve tackled legacy codebases, improved load performance, and helped shape architectures that scale. I care deeply about simplicity, thoughtful design, and building software that feels solid — not just in how it runs, but in how it’s built.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Languages</h2>
+				<div class="content">
+					<p>Typescript, C#, Java, SQL</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Frameworks & Tools</h2>
+				<div class="content">
+					<p>Angular, .NET, Azure, SQL Server, MongoDB, xUnit, Git</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
